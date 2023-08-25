@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="imagens\estilo.css">
+    <title>YOLO</title>
+</head>
+<body>
+   <h1>YOLO</h1> 
+   <h2>Detecção de objetos em tempo real</h2>
+   <h3>YOLO -> VOCÊ SÓ OLHA UMA VEZ!</h3>
+   <p>
+    <strong>PRIMEIRO CONCEITO A SABER:</strong> <br>
+    <img src="https://www.iberdrola.com/documents/20125/40126/Deep_Learning_POR.jpg/b5a1a86e-f904-c068-23ef-fa12327fe1e7?t=1634550630151" width="40%"
+    alt="Diferenças entre..."> <br>
+    <br>
+
+    <big><blockquote><strong>O QUE É YOLO</strong> <br></blockquote></big>
+    <em>Você só olha uma vez (YOLO) é um sistema de detecção de objetos em tempo real de última geração. </em> <br>
+    <br>
+   <strong>FUNCIONAMENTO DO YOLO:</strong> <br>
+   Sistemas de detecção anteriores reutilizam classificadores ou localizadores para executar a detecção. 
+   Eles aplicam o modelo a uma imagem em vários locais e escalas. Regiões de alta pontuação da imagem são consideradas detecções. <br>
+   O Yolo utiliza uma abordagem totalmente diferente. Aplicamos uma única rede neural à imagem completa. Essa rede divide a imagem em regiões
+   e prevê caixas delimitadoras e probabilidades para cada região. Essas caixas delimitadoras são ponderadas pelas probabilidades previstas.
+
+<ul>
+    <li>Ele divide a imagem em grades sxs - muito usada 13 x 13
+        Cada uma dos quadradinhos são responsáveis pela previsão das caixas delimitadoras.(gera as caixas delimitadoras)</li>
+    <li>Após isso, retorna uma pontuação de confiança. Essa pontuação não diz respeito as imagens, e sim 
+        no formato da caixa.</li>
+    <li>Para cada caixa, a célula também faz previsão de uma classe, fornecendo um valor e probabilidade
+        para cada uma das classes possíveis.</li>
+    <li>O valor de confiança para a caixa delimitadora e  a predição da classe são combinados em uma pontuação final.</li>
+    <li>A maioria das caixas terá um valor de confiança extremamente baixo, por isso geralmente são consideradas caixas com pontuação 
+        final seja de 30% ou mais (threshold)</li>
+    <li>Supressão Não- Máxima (NON - MAX-SUPRESSION) - a maioria das células não vai conter um objeto, portanto é necessário obter um valor p <sub>c</sub> 
+    que servirá para remover as caixas com baixa probabilidade de conter um objeto e também caixas que possuem área compartilhada</li>
+    <li>Âncoras (ANCHOR - BOX)-  são retângulos de propoções pré definidos usados para ter maior correspondência entre as caixas delimitadoras previstas e esperadas.
+        Possuem tamanhos iniciais (largura e altura) próximos ao tamanho dos objetos; serão redimensionados para o tamanho do objeto usando saídas da rrede neural.
+        A rede neural não deve prever o tamanho final do objeto, mas apenas ajustar o tamanho da âncora com o tamanho dos objetos
+    </li>
+</ul>
+
+
+
+ <strong>ARQUITETURA YOLO</strong> 
+<br>
+    <img src="C:\Users\satok\OneDrive\Área de Trabalho\desenvolvimento_web\andreia\imagens\WhatsApp Image 2023-08-14 at 15.06.35.jpeg"
+     alt="Arquitetura da Yolo" width="50%">
+ <br>
+ <strong>YOLOV4</strong> <br>
+ O YOLOv4 foi um modelo de detecção de objetos em tempo real publicado em abril de 2020 que alcançou desempenho de última geração no conjunto de dados COCO. 
+ Ele funciona dividindo a tarefa de detecção de objetos em duas partes, regressão para identificar o posicionamento do objeto por meio de caixas delimitadoras
+ e classificação para determinar a classe do objeto. Esta implementação do YoloV4 usa o framework Darknet. <br>
+ A maioria das aplicações de machine learning para identificação de objetos em imagens fazem uso de modelos pré-treinados, ou seja, usam somente 
+ os pesos (weights) de modelos treinados por outras pessoas para realizar as previsões.
+Usar modelos pré-treinados acelera muito a aplicação desse tipo de coisa, pois afinal, não é necessário possuir um grande conjunto de imagens e nem perder horas e horas treinando o seu próprio modelo.
+ <br>
+ <br>
+ * Como treinar um modelo de detecção de objeto móvel personalizado (com YOLOv4 Tiny e TensorFlow Lite) <br>
+ <a href= "https://blog.roboflow.com/how-to-train-a-custom-mobile-object-detection-model/"target = "_blank"> YOLOV4</a> <br>
+ <br>
+<strong>TÓPICOS PARA DETECTAR OBJETOS COM YOLO V4</strong>
+<ol>
+    <li>Download do DARKNET</li>
+        <dt>* Podemos usar acelerador de hardware: CPU (none)/ GPU (mais rápido) / TPU</dt>
+        <dd>- será criado uma pasta chamada darknet com seus arquivos</dd>
+    <li>Compilando a Biblioteca</li>
+    <li>Baixando os pesos do modelo pré-treinado</li>
+        <dt>* O Yolo foi pré treinado na base de dados para objetos 'COCO' com 80 tipos de objetos diferentes</dt>
+    <li>Testando o detector</li>
+        <dt>* Em uma pasta chamada 'data/darknet', será utilizado algumas imagens já salvas</dt>
+        <dd>- digitando 'ls', mostra o que tem na pasta atual</dd>
+        <dd>- mostra o tempo utilizado para o processamento e os pesos de certeza dos objetos encontrados</dd>
+    <li>Visualizando o resultado</li>
+        <dt>* Criar uma função para a visualização da imagem que será utilizada posteriormente. </dt>
+        <dd>- importar o OpenCv (cv2) para a leitura da imagem</dd>
+        <dd>- converter o formato BGR do Cv2 para RGB </dd>
+</ol>
+<strong>YOLO v8</strong> <br>
+YOLOv8 é o mais novo modelo YOLO de última geração que pode ser usado para detecção de objetos, classificação de imagem e tarefas 
+de segmentação de instâncias. O YOLOv8 foi desenvolvido pela Ultralytics, que também criou o influente e definidor do setor modelo YOLOv5. 
+A fama da YOLO é atribuível à sua considerável precisão, mantendo um tamanho de modelo pequeno. 
+Os modelos YOLO podem ser treinados em uma única GPU, o que o torna acessível a uma ampla gama de desenvolvedores. 
+Os profissionais de aprendizado de máquina podem implantá-lo por baixo custo em hardware de borda ou na nuvem.
+A YOLO tem sido alimentada pela comunidade de visão computacional desde seu primeiro lançamento em 2015 por Joseph Redmond. 
+Nos primeiros dias (versões 1-4), o YOLO foi mantido em código C em uma estrutura de aprendizado profundo personalizada escrita por Redmond 
+chamada Darknet. <br>
+<br>
+<strong>Por que devo usar YOLOv8?</strong> <br>
+<ul>
+    <li>YOLOv8 tem uma alta taxa de precisão medida por COCO e Roboflow 100.</li>
+    <li>O YOLOv8 vem com muitos recursos de conveniência para desenvolvedores, desde uma *CLI fácil de usar até um pacote Python
+         bem estruturado.</li>
+         <dt> * A interface de linha de comando (CLI) YOLO permite comandos simples de linha única sem a necessidade de um ambiente Python.
+             A CLI não requer personalização ou código Python. Você pode simplesmente executar todas as tarefas do terminal com o comando</dt>
+    <li>Há uma grande comunidade em torno do YOLO e uma comunidade crescente em torno do modelo YOLOv8, o que significa que
+        há muitas pessoas em círculos de visão computacional que podem ser capazes de ajudá-lo quando você precisar de orientação</li>
+    </ul>
+    Se você quiser examinar o código sozinho, confira o <a href="https://github.com/ultralytics/ultralytics?ref=blog.roboflow.com">repositório YOLOv8</a>  
+    e visualize <a href="https://github.com/ultralytics/yolov5/compare/master...exp13?ref=blog.roboflow.com">esse diferencial de código</a> para ver como
+     parte da pesquisa foi feita. <br>
+     <br>
+     YOLOv8 é um modelo sem âncora. Isso significa que ele prevê diretamente o centro de um objeto em vez do deslocamento de uma caixa âncora
+      conhecida. A detecção sem âncora reduz o número de previsões de caixa, o que acelera a supressão não máxima (NMS), uma etapa complicada de pós-processamento que filtra as detecções
+      de candidatos após a inferência. <br>
+      <br>
+      <cite>Os modelos de detecção de objetos utilizam <strong>caixas âncora </strong> para fazer previsões de caixas delimitadoras, na detecção de objetos,
+    estamos procurando identificar e localizar objetos à medida que eles aparecem em uma imagem. A detecção de objetos difere da classificação
+    de imagem porque pode haver vários objetos da mesma classe ou de classes diferentes presentes na imagem, e a detecção de objetos busca prever
+    com precisão todos esses objetos. Os modelos de detecção de objetos lidam com essa tarefa dividindo a etapa de previsão em duas partes - 
+    primeiro eles preveem uma caixa delimitadora por meio de regressão e segundo preveem um rótulo de classe por meio de classificação. <br> Para 
+    prever e localizar muitos objetos diferentes em uma imagem, a maioria dos modelos de detecção de objetos de última geração, como o EfficientDet
+    e os modelos YOLO, começam com caixas de ancoragem como um precedente e se ajustam a partir daí. </cite> <br>
+    <br>
+    <div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBN6XofAqhAfalrbv3V0KM03CTnQr_6JPy74zVtqNeFyeqM3XGSgt3l8TmAY8T7C0RDBU&usqp=CAU"/ target = "_blank"
+         alt="caixa âncora">
+         <cite><pre>Uma imagem da previsão de caixa delimitadora com base em uma caixa âncora</pre></cite> 
+    </div>
+  <strong>Microsoft COCO: Common Objects in Context</strong> <br>
+  <br>
+  O conjunto de dados MS COCO (Microsoft Common Objects in Context) é um conjunto de dados de detecção, segmentação, detecção de ponto-chave e legendagem de objetos em grande escala. 
+  O conjunto de dados consiste em imagens de 328K. <br>
+  O conjunto de dados tem anotações para:
+  <ul>
+    <li>detecção de objetos: caixas delimitadoras e máscaras de segmentação por instância com 80 categorias de objetos,</li>
+    <li>legendagem: descrições em linguagem natural das imagens,</li>
+    <li>detecção de pontos-chave: contendo mais de 200.000 imagens e 250.000 instâncias de pessoas rotuladas com pontos-chave 
+        (17 pontos-chave possíveis, como olho esquerdo, nariz, quadril direito, tornozelo direito),</li>
+    <li>segmentação de imagem de material  máscaras de segmentação por pixel com 91 categorias de coisas, como grama, parede, céu,</li>
+    <li>panóptico: segmentação de cena completa, com 80 categorias de coisas (como pessoa, bicicleta, elefante) e um subconjunto de 91 
+        categorias de coisas (grama, céu, estrada),</li>
+    <li>pose densa: mais de 39.000 imagens e 56.000 instâncias de pessoas rotuladas com anotações DensePose, 
+        cada pessoa rotulada é anotada com um ID de instância e um mapeamento entre pixels de imagem que pertencem ao corpo dessa pessoa
+        em um modelo 3D. As anotações estão disponíveis publicamente apenas para imagens de treinamento e validação.</li>
+  </ul>
+  Identificar objetos em imagens ou vídeos é algo que pode ser simples, e os modelos pré-treinados aceleram muito a implementação dessas 
+  funcionalidades.
+
+A precisão do algoritmo pode ser facilmente ajustada no arquivo .cfg, alterando o parâmetro thresh para algo entre 0–1. Quanto mais baixo,
+menos criterioso o algoritmo vai ser para identificar os objetos. Se o thresh estiver em 0.2 e o algoritmo julgar que determinado objeto tem 21% tem probabilidade de estar correto, então ele colocará o retângulo com a label sobre o objeto.
+
+É possível utilizar o Darkflow para treinar o algoritmo com seu próprio banco de imagens, de forma a identificar objetos que não tenham sido
+ contemplados nos modelos pré-treinados. Porém, isto talvez seja tema para um Post futuro… <br>
+ <br>
+ <strong>O QUE É PYTORCH:</strong> <br>
+ É uma biblioteca de código-fonte aberto projetada com o Python em mente e construída para projetos de aprendizado de máquina. 
+ É especializada em diferenciação automática, cálculos de tensores e aceleração de GPU.
+ Isso o torna mais adequado para aplicativos de aprendizado de máquina de ponta, como aprendizado profundo. <br>
+ PyTorch é particularmente popular entre os pesquisadores devido à customizabilidade do Python. 
+ Criar camadas de dados personalizadas e arquiteturas de rede é especialmente fácil usando o Python.
+ PyTorch é baseado em Torch , um quadro inicial para o aprendizado profundo. PyTorch apenas aproveita o potencial de aprendizado 
+ profundo da Torch e a porta para o ambiente Python.
+    
+
+
+
+
+<BR></BR>
+<div>
+
+<a href="https://drive.google.com/drive/folders/13kpMZbQ2EAqf1Q4vfMl88Os0ba5sNlLU" target="_blank">COLAB</a>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtpwuAz1Z8OI_jMcl96a_Z1ht6emTNb51viqxPziTc&s" width="5.0%"
+ alt="colab"> <br>
+ <a href="https://pysource.com/2023/02/21/instance-segmentation-yolo-v8-opencv-with-python-tutorial/" target="_blank">Segmentação de Instâncias - YOLO v8</a> <br>
+<a href="https://towardsdatascience.com/yolo-object-detection-with-opencv-and-python-21e50ac599e9" target = "_blank">Yolo / OPENCV / PYTHON</a> <br>
+<a href="https://www.youtube.com/watch?v=JyGGMyR3x5I">VIDEO:Machine Learning: Tutorial prático</a> <br>
+</div>
+   </p>
+
+
+
+
+
+
+
+
+
+<dl>
+
+
+</dl>
+</body>
+</html>
