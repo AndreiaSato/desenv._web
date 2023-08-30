@@ -1,0 +1,47 @@
+body{
+    background-color: #dae26e;
+    font-family: Arial, Helvetica,sans-serif;
+    color: rgb(94, 38, 6);
+}
+/*seletor de classes*/
+.bordascss{
+    border-style: solid;
+    border-color: #f5f562;
+}
+
+.espacopar{
+    padding: 5%;
+    margin: 3%;
+}
+
+/*seletor de id */
+#container{
+    margin: 3%;
+    background-color: rgb(95, 160, 111);
+    padding: 2%;
+}
+
+.bordadot{
+    border-style: dotted;
+    border-color: rgb(218, 53, 53);
+    border-width: 0.5em;
+}
+
+.menuitem{
+    
+   
+    display: inline;
+    background-color: rgb(217, 223, 230);
+    border-left: #dae26e;
+    padding: 1%;
+    
+    color: rgb(92, 41, 10);
+}
+a{
+    text-decoration: none;
+}
+/* quando passar  por algo, muda a cor para outra*/
+li:hover{
+    background-color: rgb(231, 101, 25);
+    color: rgb(214, 235, 25);
+}
