@@ -4,24 +4,12 @@ body{
     
 }
 
-
-#bordas2{
+#bordas, #bordas1, #bordas2, #bordas3, #bordas4{
     margin: 3%;
     background-color: rgb(238, 212, 212);
     padding: 5%;
 }
 
-#bordas{
-    margin: 3%;
-    background-color: rgb(238, 212, 212);
-    padding: 5%;
-}
-
-#bordas1{
-    margin: 3%;
-    background-color: rgb(238, 212, 212);
-    padding: 5%;
-}
 .menuitem{
     display: inline;
    
@@ -48,4 +36,8 @@ a{
 a:hover{
     background-color: rgb(230, 186, 219);
     color: rgb(221, 214, 211);
+}
+img{
+    display: block;
+    margin: auto;
 }
