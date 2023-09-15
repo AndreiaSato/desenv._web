@@ -1,6 +1,6 @@
 body{
     font-size: large;
-    background-color: rgb(220,220,220);
+    background-color: #e0e9db;
 
 }
 
@@ -8,16 +8,14 @@ body{
     list-style: none;
     display: inline;
     margin: 2% 2% 2% 2%; 
-    color: rgb(240, 236, 236);
+    color: rgb(235, 235, 243);
     padding: 1%;
-    
-
-    
 
 }
 nav{
-    background-color: rgb(47,79,79);
+    background-color:#8d9788;
     padding: 1%;
+    font-size: medium;
     
 }
 
@@ -28,16 +26,17 @@ nav{
 
 a{
     text-decoration: none;
+    color: black;
 }
 
 #bordas, #bordas1, #bordas2{
     margin: 3%;
-    background-color: rgb(119,136,153);
+    background-color: rgb(244, 245, 247);
     padding: 5%;
 }
 #bordas3, #bordas4{
     margin: 3%;
-    background-color: rgb(119,136,153);
+    background-color: rgb(238, 241, 245);
     padding: 5%;
 }
 
@@ -45,4 +44,9 @@ a{
     border-style: solid;
     border-color: rgb(41, 44, 44);
     padding: 3%;
+}
+
+#contatos{
+    justify-content: center;
+    text-align: center;
 }

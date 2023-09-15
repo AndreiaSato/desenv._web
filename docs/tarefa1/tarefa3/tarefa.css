@@ -4,7 +4,7 @@ body{
     
 }
 
-#bordas, #bordas1, #bordas2, #bordas3, #bordas4{
+#bordas, #bordas1, #bordas2, #bordas3, #bordas4, #bordas5{
     margin: 3%;
     background-color: rgb(238, 212, 212);
     padding: 5%;
@@ -40,4 +40,7 @@ a:hover{
 img{
     display: block;
     margin: auto;
+}
+h1{
+    text-align: center;
 }
