@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="pt-BR">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pizza.css">
+    <title>AULA7 - pizza</title>
+</head>
+<body>
+    <div>
+        <div class="titulo">
+            <h1>Cadastro de Pizza</h1>
+            <h4>Defina a receita de sua Pizza</h4>
+        </div>
+        <div>
+            <form>
+                <div>
+                    <label for="nome">Nome da Pizza</label>
+                    <input name="nome" type="text" required>
+                </div>
+                <div>
+                    <h4>Tipo de massa</h4>
+                    <input name="trad" type="checkbox">
+                    <label for="trad">Tradicional</label>
+
+                    <input name="integral" type="checkbox" >
+                    <label for="integral">Integral</label>
+                </div>
+                <div>
+                    <h4>Borda Recheada</h4>
+                    <input name="borda" type="radio">
+                    <label for="borda">Sim</label>
+
+                    <input name="borda" type="radio">
+                    <label for="borda">Não</label>
+                </div>
+                <div>
+                    <h4>Ingredientes</h4>
+                    <p>
+                    <input type="text" placeholder="Digite o nome do ingrediente">
+                    <label for="qtd">Quantidade</label>
+                    <input name="qtd" type="number"> gr
+                    </p>
+                    <p>
+                    <input type="text" placeholder="Digite o nome do ingrediente">
+                    <label for="qtd1">Quantidade</label>
+                    <input name="qtd1" type="number"> gr 
+                    </p>
+                    <p>
+                    <input type="text" placeholder="Digite o nome do ingrediente">
+                    <label for="qtd2">Quantidade</label>
+                    <input name="qtd2" type="number"> gr
+                    </p>
+                    <p>
+                    <input type="text" placeholder="Digite o nome do ingrediente">
+                    <label for="qtd3">Quantidade</label>
+                    <input name="qtd3" type="number"> gr
+                    </p>   
+                </div>
+                <div>
+                    <h4>Tamanhos Disponíveis</h4>
+                    <input name="tam" type="checkbox">
+                    <label for="tam">Pequeno</label>
+                    <input name="tam1" type="checkbox">
+                    <label for="tam1">Média</label>
+                    <input name="tam2" type="checkbox">
+                    <label for="tam2">Grande</label>
+                    <input name="tam3" type="checkbox">
+                    <label for="tam3">Big</label>
+                </div>
+                <div>
+                    <input type="submit" value="Salvar">
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>
