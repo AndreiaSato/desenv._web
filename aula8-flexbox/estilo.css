@@ -1,0 +1,16 @@
+.container{
+display: flex;
+/* flex-wrap: nowrap; - para não quebrar linhas qd maior que a folha*/
+/* justify-content: center;   /* centralizar as divs */ 
+justify-content: space-between; /* com o primeiro item no 
+início da linha e o último no final. */
+justify-content: space-around; /*  espaço igual ao redor de cada item */
+justify-content: space-evenly;  /* ficar uniforme */
+}
+.item{
+border:solid;
+/* width: 40%; - deixar as divos grandes  */
+
+}
+
+ 

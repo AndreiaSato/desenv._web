@@ -1,0 +1,25 @@
+#um{ 
+    background-color: aqua;
+    width: 40%;
+}
+#dois{
+    background-color: blue;
+    flex-direction: column;
+    width: 60%;
+}
+
+#bla{
+    display: flex;
+    background-color: blueviolet;
+    
+}
+
+.container{
+    display: flex;
+    
+}
+div{
+    border: solid;
+    
+    text-align: center;
+}
